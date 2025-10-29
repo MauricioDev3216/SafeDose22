@@ -136,13 +136,14 @@ O projeto **SafeDose** foi desenvolvido com base na metodologia ágil **Scrum**,
 
 ## 🧪 WireFrame (Protótipos das Telas)
 
-<img width="570" height="579" alt="image" src="https://github.com/user-attachments/assets/54d765cb-342e-40d4-9918-041b79dba521" />
-<img width="761" height="570" alt="image" src="https://github.com/user-attachments/assets/2bb4d340-e32a-4ba5-868e-ab0757ad2760" />
-<img width="741" height="569" alt="image" src="https://github.com/user-attachments/assets/dcdf4a81-3fca-4b8a-a4dc-7892d6f44ffa" />
-<img width="575" height="569" alt="image" src="https://github.com/user-attachments/assets/ec726ecc-076a-482c-b16e-ce4422b53c4b" />
-<img width="575" height="574" alt="image" src="https://github.com/user-attachments/assets/e64640bd-c6dd-4a43-95a4-5eb7a7cd9065" />
-<img width="570" height="566" alt="image" src="https://github.com/user-attachments/assets/238ee393-92fc-41d9-b8ec-2bb33b176a01" />
-<img width="572" height="569" alt="image" src="https://github.com/user-attachments/assets/256ea110-358e-4456-8285-684259f9affd" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/54d765cb-342e-40d4-9918-041b79dba521" />
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/2bb4d340-e32a-4ba5-868e-ab0757ad2760" />
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/dcdf4a81-3fca-4b8a-a4dc-7892d6f44ffa" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/ec726ecc-076a-482c-b16e-ce4422b53c4b" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/e64640bd-c6dd-4a43-95a4-5eb7a7cd9065" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/238ee393-92fc-41d9-b8ec-2bb33b176a01" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/256ea110-358e-4456-8285-684259f9affd" />
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/efc405e9-e47d-40b0-9848-f742488400dc" />
 
 
 
