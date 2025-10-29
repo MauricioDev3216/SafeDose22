@@ -117,44 +117,20 @@ Interface otimizada para todos os públicos:
 
 O **SafeDose** utiliza o **SQLite** (ou arquivos `.json`/`.txt` para iniciantes) para armazenar dados localmente.
 
-### Estrutura do Banco
-
-```sql
-CREATE TABLE medicamento (
-  id_medicamento INTEGER PRIMARY KEY AUTOINCREMENT,
-  nome TEXT NOT NULL,
-  dosagem TEXT,
-  frequencia TEXT,
-  horarios TEXT,
-  inicio_tratamento TEXT,
-  fim_tratamento TEXT
-);
-
-CREATE TABLE historico (
-  id_historico INTEGER PRIMARY KEY AUTOINCREMENT,
-  id_medicamento INTEGER,
-  data_hora TEXT,
-  status TEXT, -- "Tomado" ou "Adiado"
-  FOREIGN KEY (id_medicamento) REFERENCES medicamento(id_medicamento)
-);
-```
-
----
-
 ## 🧠 Metodologia de Desenvolvimento
 
 O projeto **SafeDose** foi desenvolvido com base na metodologia ágil **Scrum**, garantindo entregas incrementais e colaboração contínua entre os membros da equipe.
 
 ### 🧩 Papéis no Time
 
-* **Scrum Master:** [Seu Nome]
-* **Product Owner (PO):** [Nome do PO]
+* **Scrum Master:** [\Lucas Santos]
+* **Product Owner (PO):** [Antônio Lesnik]
 * **Desenvolvedores:**
 
-  * [Dev 1]
-  * [Dev 2]
-  * [Dev 3]
-  * [Dev 4]
+  * [Pedro Algayer]
+  * [Arthur Postringer]
+  * [Arthur de Brito]
+  * [Mauricio de Campos]
 
 ---
 
@@ -179,7 +155,7 @@ O **SafeDose** foi desenvolvido como parte do **Curso Técnico em Informática**
 * **Banco de Dados e DAO**
 * **Interface Gráfica (Java Swing)**
 * **Usabilidade e Acessibilidade Digital**
-
+https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM/boards/1?sprintStarted=true
 ---
 
 ## 👨‍💻 Autores
