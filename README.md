@@ -141,7 +141,7 @@ O projeto **SafeDose** foi desenvolvido com base na metodologia ágil **Scrum**,
 <img width="741" height="569" alt="image" src="https://github.com/user-attachments/assets/dcdf4a81-3fca-4b8a-a4dc-7892d6f44ffa" />
 <img width="575" height="569" alt="image" src="https://github.com/user-attachments/assets/ec726ecc-076a-482c-b16e-ce4422b53c4b" />
 <img width="575" height="574" alt="image" src="https://github.com/user-attachments/assets/e64640bd-c6dd-4a43-95a4-5eb7a7cd9065" />
-<img width="576" height="572" alt="image" src="https://github.com/user-attachments/assets/70ea8072-52e7-40de-98a3-c3362aef3509" />
+<img width="570" height="566" alt="image" src="https://github.com/user-attachments/assets/238ee393-92fc-41d9-b8ec-2bb33b176a01" />
 <img width="572" height="569" alt="image" src="https://github.com/user-attachments/assets/256ea110-358e-4456-8285-684259f9affd" />
 
 
