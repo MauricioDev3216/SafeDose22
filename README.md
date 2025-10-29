@@ -134,7 +134,7 @@ O projeto **SafeDose** foi desenvolvido com base na metodologia ágil **Scrum**,
 
 ---
 
-## 🧪 Mockups (Protótipos das Telas)
+## 🧪 WireFrame (Protótipos das Telas)
 
 *(Substitua pelos prints reais do projeto quando disponíveis)*
 
