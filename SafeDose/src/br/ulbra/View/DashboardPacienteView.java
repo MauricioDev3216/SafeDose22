@@ -38,17 +38,22 @@ public class DashboardPacienteView extends javax.swing.JFrame {
 
         jMenu1.setText("Perfil");
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("perfil");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Consultas");
 
-        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.setText("consultas");
         jMenu2.add(jMenuItem2);
 
-        jMenuItem3.setText("jMenuItem3");
+        jMenuItem3.setText("rotinas");
         jMenu2.add(jMenuItem3);
 
         jMenuBar1.add(jMenu2);
@@ -68,6 +73,10 @@ public class DashboardPacienteView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
