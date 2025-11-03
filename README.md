@@ -1,6 +1,6 @@
 # 🩺 SafeDose – Sistema de Gestão de Medicamentos
 
-O **SafeDose** é um sistema desktop desenvolvido em **Java** com **Swing**, projetado para ajudar usuários a **organizar o uso de medicamentos de forma segura**, definindo **horários**, recebendo **alertas sonoros e visuais** e acompanhando o **histórico de uso**.
+O **SafeDose** é um sistema desktop desenvolvido em **Java** com **Swing**, projetado para ajudar usuários a **organizar o uso de medicamentos de forma segura**, definindo **horários**, e acompanhando o **histórico de uso**.
 
 Seu foco principal é a **acessibilidade e praticidade**, oferecendo uma interface limpa, botões grandes e alertas claros — ideal para idosos, cuidadores e qualquer pessoa que deseje um controle confiável sobre sua rotina de medicação.
 
@@ -10,7 +10,6 @@ Seu foco principal é a **acessibilidade e praticidade**, oferecendo uma interfa
 
 * [x] Cadastro de medicamentos
 * [x] Definição de horários e frequência
-* [x] Alertas sonoros e visuais
 * [x] Histórico de medicação
 * [x] Interface acessível e intuitiva
 * [x] Armazenamento local com opção de banco de dados
@@ -75,9 +74,6 @@ Permite registrar novos medicamentos com detalhes completos:
 
 ---
 
-### ⏰ Tela de Alertas
-
-Quando chega o horário programado, o sistema exibe uma **notificação visual e sonora**, contendo o nome do medicamento e a dosagem.
 
 **Opções disponíveis:**
 
@@ -113,13 +109,11 @@ Interface otimizada para todos os públicos:
 
 ---
 
-## 🗄️ Banco de Dados
-
-O **SafeDose** utiliza o **SQLite** (ou arquivos `.json`/`.txt` para iniciantes) para armazenar dados localmente.
 
 ## 🧠 Metodologia de Desenvolvimento
 
 O projeto **SafeDose** foi desenvolvido com base na metodologia ágil **Scrum**, garantindo entregas incrementais e colaboração contínua entre os membros da equipe.
+https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM/boards/1
 
 ### 🧩 Papéis no Time
 
@@ -158,7 +152,7 @@ O **SafeDose** foi desenvolvido como parte do **Curso Técnico em Informática**
 * **Banco de Dados e DAO**
 * **Interface Gráfica (Java Swing)**
 * **Usabilidade e Acessibilidade Digital**
-https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM/boards/1?sprintStarted=true
+
 ---
 
 ## 👨‍💻 Autores
