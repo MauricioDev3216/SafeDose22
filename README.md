@@ -129,15 +129,16 @@ https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM
 ---
 
 ## 🧪 WireFrame (Protótipos das Telas)
+<img width="543" height="561" alt="image" src="https://github.com/user-attachments/assets/4f90f633-0e32-4e91-a7d0-583d01b6674b" />
+<img width="646" height="375" alt="image" src="https://github.com/user-attachments/assets/02102296-fbe2-4d6a-8859-aaa5ac495376" />
+<img width="618" height="430" alt="image" src="https://github.com/user-attachments/assets/bb227929-b6d8-4f85-9e69-d14c480ed1cc" />
+<img width="554" height="497" alt="image" src="https://github.com/user-attachments/assets/46d4f092-5aaa-45eb-8ce6-74bcfcc7ad36" />
 
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/54d765cb-342e-40d4-9918-041b79dba521" />
-<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/2bb4d340-e32a-4ba5-868e-ab0757ad2760" />
-<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/dcdf4a81-3fca-4b8a-a4dc-7892d6f44ffa" />
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/ec726ecc-076a-482c-b16e-ce4422b53c4b" />
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/e64640bd-c6dd-4a43-95a4-5eb7a7cd9065" />
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/238ee393-92fc-41d9-b8ec-2bb33b176a01" />
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/256ea110-358e-4456-8285-684259f9affd" />
-<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/efc405e9-e47d-40b0-9848-f742488400dc" />
+
+## Diagramas
+
+**Diagrama de Casos de Uso**
+<img width="1477" height="1600" alt="image" src="https://github.com/user-attachments/assets/1e17fbbb-7072-4469-ba71-651adb44d21e" />
 
 
 
