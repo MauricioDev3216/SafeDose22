@@ -32,18 +32,18 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        idMedicamentos = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtMedicamento = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        txtMedico = new javax.swing.JTextField();
+        btnSalvar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbMedicamentos = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btnListar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,28 +58,28 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("ID:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 94, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 90, 214, -1));
+        jPanel2.add(idMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 90, 214, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Medicamento:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 145, -1));
+        jPanel2.add(txtMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 145, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Médico");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 162, -1, -1));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 162, 192, -1));
+        jPanel2.add(txtMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 162, 192, -1));
 
-        jButton1.setText("Salvar");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 213, -1, -1));
+        btnSalvar.setText("Salvar");
+        jPanel2.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 213, -1, -1));
 
-        jButton2.setText("Editar");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 213, -1, -1));
+        btnEditar.setText("Editar");
+        jPanel2.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 213, -1, -1));
 
-        jButton3.setText("Excluir");
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 213, -1, -1));
+        btnExcluir.setText("Excluir");
+        jPanel2.add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 213, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbMedicamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -94,17 +94,17 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
                 "ID", "Medicamento", "Médico"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbMedicamentos);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 251, 473, 163));
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(667, 90, -1, -1));
 
-        jButton4.setText("Listar");
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 213, -1, -1));
+        btnListar.setText("Listar");
+        jPanel2.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 213, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/Design sem nome (2).png"))); // NOI18N
         jLabel6.setText("jLabel6");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 240, 160));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 240, 160));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,7 +114,9 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,10 +169,11 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnListar;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JTextField idMedicamentos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -181,9 +184,8 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tbMedicamentos;
+    private javax.swing.JTextField txtMedicamento;
+    private javax.swing.JTextField txtMedico;
     // End of variables declaration//GEN-END:variables
 }
