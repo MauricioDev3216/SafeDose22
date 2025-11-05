@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public abstract class AbstractDAO {
 
 private static final String DRIVER = "com.mysql.jdbc.Driver"; //Driver JDBC
-    private static final String URL = "jdbc:mysql://localhost:3306/booktrack";// Url do banco de dados
+    private static final String URL = "jdbc:mysql://localhost:3306/safedose22";// Url do banco de dados
     private static final String USER = "root"; //Login e senha do banco de dados
     private static final String PASS = "";
 
