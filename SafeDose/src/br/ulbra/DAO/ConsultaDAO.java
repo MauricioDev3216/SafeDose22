@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.ulbra.Model;
+package br.ulbra.DAO;
 
 /**
  *
  * @author Vanderlei
  */
-public class Cuidador {
+public class ConsultaDAO {
     
 }
