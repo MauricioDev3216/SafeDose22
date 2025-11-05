@@ -43,10 +43,41 @@ Seu foco principal é a **acessibilidade e praticidade**, oferecendo uma interfa
 ```
 SafeDose/
 ├── src/
-│   └── br/safedose/controller/      # Controladores do sistema
+│   └── br/safedose/controller/ # Controladores do sistema
+                    controller/
+                       CuidadorController.java
+                       UsuarioController.java
 │   ├── br/safedose/model/           # Classes modelo (Medicamento, Alerta, Histórico)
+                   /model/
+                   Consulta.java
+                   HistoricoMed.java
+                   Medico.java
+                   Rotina.java
+                   RotinaMedicamento.java
+                   Usuario.java
 │   ├── br/safedose/view/            # Telas (Login, Cadastro, Alertas, Histórico)
+                   /view/
+                   CadastroMedicoView
+                   ConsultasView
+                   CuidadorView
+                   DashboardCuidadorView
+                   DashboardPacienteView
+                   LoginView
+                   MedicamentosCadastroView
+                   MedicoView
+                   PacienteCadastroView
+                   PerfilPacienteView
+                   RotinasView
 │   └── br/safedose/dao/             # Classes de acesso a dados (DAO com SQLite ou JSON)
+                   /dao/
+                   AbstractDAO
+                   ConsultaDAO
+                   CrudRepository
+                   HistoricoMedDAO
+                   MedicamentoDAO
+                   MedicoDAO
+                   RotinaDAO
+                   UsuarioDAO
 ├── lib/                             # Bibliotecas externas (se houver)
 └── assets/                          # Sons, ícones e imagens do sistema
 ```
