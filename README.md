@@ -141,6 +141,11 @@ https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM
 <img width="1477" height="1600" alt="image" src="https://github.com/user-attachments/assets/1e17fbbb-7072-4469-ba71-651adb44d21e" />
 
 
+**Diagrama de Classes**
+
+
+**Diagrama de Classes Usuario e suas relações       ATUALIZAR O VIEW**
+<img width="1129" height="714" alt="image" src="https://github.com/user-attachments/assets/c29a173b-aa8f-422d-9f8c-cd902bfc6181" />
 
 
 
