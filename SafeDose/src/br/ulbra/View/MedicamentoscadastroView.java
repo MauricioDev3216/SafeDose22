@@ -44,7 +44,6 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         tbMedicamentos = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         btnListar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,15 +101,13 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         btnListar.setText("Listar");
         jPanel2.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 213, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/Design sem nome (2).png"))); // NOI18N
-        jLabel6.setText("jLabel6");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 240, 160));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 498, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +176,6 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollBar jScrollBar1;
