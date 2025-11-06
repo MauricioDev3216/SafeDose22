@@ -43,11 +43,43 @@ Seu foco principal é a **acessibilidade e praticidade**, oferecendo uma interfa
 ```
 SafeDose/
 ├── src/
-│   └── br/safedose/controller/      # Controladores do sistema
-│   ├── br/safedose/model/           # Classes modelo (Medicamento, Alerta, Histórico)
-│   ├── br/safedose/view/            # Telas (Login, Cadastro, Alertas, Histórico)
-│   └── br/safedose/dao/             # Classes de acesso a dados (DAO com SQLite ou JSON)
-├── lib/                             # Bibliotecas externas (se houver)
+│   └── br/ulbra/controller/         # Controladores do sistema
+│   │  └── CuidadorController.java
+│   │  └── MedicoController.java
+│   │  └── MedicoController.java  
+│   ├── br/ulbra/DAO/              # Classes modelo (Medicamento, Alerta, Histórico)
+│   │   └── AbstractDAO.java 
+│   │   └── ConsultaDAO.java 
+│   │   └── CrudRepository.java
+│   │   └── HistóricoMedDAO.java 
+│   │   └── MedicamentoDAO.java
+│   │   └── MedicoDAO.java
+│   │   └── RotinaDAO.java
+│   │   └── UsuarioDAO.java
+│   ├── br/ulbra/Model/               # Telas (Login, Cadastro, Alertas, Histórico)
+│   │   └── Consulta.java 
+│   │   └── HistóricoMed.java 
+│   │   └── Medicamento.java
+│   │   └── Medico.java
+│   │   └── Rotina.java
+│   │   └── RotinaMedicamento.java
+│   │   └── Usuario.java
+│   └── br/ulbra/View/                # Classes de acesso a dados (DAO com SQLite ou JSON)
+│   │   └── CadastrMedicoView.java 
+│   │   └── ConsultasView.java 
+│   │   └── CuidadorView.java
+│   │   └── DashboardCuidadorView.java
+│   │   └── DashboardPacienteView.java 
+│   │   └── LoginView.java 
+│   │   └── MedciamentoscadastroView.java
+│   │   └── MedicoView.java
+│   │   └── PacientecadastroView.java 
+│   │   └── PerfilPacienteView.java 
+│   │   └── RotinasView.java
+├── lib/                             # Bibliotecas externas
+│   └── Driver JBDC do MySQL - mysql-connector-java-5.1.23-bin.jar
+│   └── Layout Absoluto -AbsoluteLayout.jar
+│   └── JDK 1.8 (Defaut)
 └── assets/                          # Sons, ícones e imagens do sistema
 ```
 
