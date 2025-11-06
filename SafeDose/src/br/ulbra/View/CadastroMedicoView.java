@@ -1,21 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ulbra.View;
 
-/**
- *
- * @author aluno.saolucas
- */
+import br.ulbra.Controller.MedicoController;
+import br.ulbra.Model.Medico;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+        
 public class CadastroMedicoView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CadastroMedicoView
-     */
+    private MedicoController controller;
+    private DefaultTableModel modelo;
+
+
     public CadastroMedicoView() {
         initComponents();
+        controller = new MedicoController();
+        modelo = (DefaultTableModel) tbMedico.getModel();
+
+         tbMedico.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            int selectedRow = tbMedico.getSelectedRow();
+            if (selectedRow != -1) {
+                txtId.setText(modelo.getValueAt(selectedRow, 0).toString());
+                txtNome.setText(modelo.getValueAt(selectedRow, 2).toString());
+                txtEspecialidade.setText(modelo.getValueAt(selectedRow, 1).toString());
+                txtCRM.setText(modelo.getValueAt(selectedRow, 3).toString());
+                txtTelefone.setText(modelo.getValueAt(selectedRow, 4).toString());
+                txtEmail.setText(modelo.getValueAt(selectedRow, 5).toString());
+            }
+        }
+    });
+        
     }
 
     /**
@@ -33,11 +49,11 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        idMedico = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtEspecialidade = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        nomeMedico = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
@@ -45,7 +61,6 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         tbMedico = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         btnListar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         txtCRM = new javax.swing.JTextField();
         txtTelefone = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
@@ -76,40 +91,67 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("ID:");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-        jPanel4.add(idMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 220, -1));
+
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 60, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Especialidade:");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
-        jPanel4.add(txtEspecialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 130, -1));
+
+        txtEspecialidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEspecialidadeActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txtEspecialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 200, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Email:");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
-        jPanel4.add(nomeMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 180, -1));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+        jPanel4.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 160, -1));
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
         jPanel4.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
         jPanel4.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
         jPanel4.add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
 
         tbMedico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Especialidade", "Médico", "CRM", "Telefone", "Email"
+                "ID", "Médico", "Especialidade", "CRM", "Telefone", "Email"
             }
         ));
         jScrollPane1.setViewportView(tbMedico);
@@ -118,32 +160,33 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(667, 90, -1, -1));
 
         btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
         jPanel4.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, -1, -1));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/Design sem nome (2).png"))); // NOI18N
-        jLabel6.setText("jLabel6");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 240, 160));
 
         txtCRM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCRMActionPerformed(evt);
             }
         });
-        jPanel4.add(txtCRM, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 180, -1));
+        jPanel4.add(txtCRM, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 200, -1));
 
         txtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefoneActionPerformed(evt);
             }
         });
-        jPanel4.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 180, -1));
+        jPanel4.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 200, -1));
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
             }
         });
-        jPanel4.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 180, -1));
+        jPanel4.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 200, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Médico:");
@@ -151,11 +194,11 @@ public class CadastroMedicoView extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("CRM:");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("Telefone:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, -1));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -209,6 +252,101 @@ public class CadastroMedicoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+    
+        if (controller.salvarMedico(
+                txtNome.getText(),
+                txtEspecialidade.getText(),
+                txtCRM.getText(),
+                txtTelefone.getText(),
+                txtEmail.getText())) {
+
+            JOptionPane.showMessageDialog(null, "Médico salvo com sucesso!");
+            atualizarTabela();
+            limparCampos();
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro ao salvar médico!");
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+         int linha = tbMedico.getSelectedRow();
+            if (linha == -1) {
+                JOptionPane.showMessageDialog(this, "Selecione um médico para editar.");
+                return;
+            }
+
+            int id = (int) tbMedico.getValueAt(linha, 0);
+            String nome = txtNome.getText();
+            String especialidade = txtEspecialidade.getText();
+            String crm = txtCRM.getText();
+            String telefone = txtTelefone.getText();
+            String email = txtEmail.getText();
+
+            MedicoController controller = new MedicoController();
+            if (controller.editarMedico(id, nome, especialidade, crm, telefone, email)) {
+                JOptionPane.showMessageDialog(this, "Médico atualizado com sucesso!");
+                atualizarTabela();
+                limparCampos();
+            } else {
+                JOptionPane.showMessageDialog(this, "Erro ao editar médico.");
+            }
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        int linha = tbMedico.getSelectedRow();
+            if (linha == -1) {
+                JOptionPane.showMessageDialog(this, "Selecione um médico para excluir.");
+                return;
+            }
+
+            int id = (int) tbMedico.getValueAt(linha, 0);
+            MedicoController controller = new MedicoController();
+
+            int opc = JOptionPane.showConfirmDialog(this, "Deseja excluir este médico?", "Confirmação", JOptionPane.YES_NO_OPTION);
+            if (opc == JOptionPane.YES_OPTION) {
+                if (controller.excluirMedico(id)) {
+                    JOptionPane.showMessageDialog(this, "Médico excluído com sucesso!");
+                    atualizarTabela();
+                    limparCampos();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Erro ao excluir médico.");
+                }
+            }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+       btnListar.addActionListener(e -> atualizarTabela());
+    }//GEN-LAST:event_btnListarActionPerformed
+
+    private void txtEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEspecialidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEspecialidadeActionPerformed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
+
+     private void atualizarTabela() {
+        MedicoController controller = new MedicoController();
+        List<Medico> lista = controller.listarMedicos();
+        modelo.setRowCount(0);
+        for (Medico m : lista) {
+            modelo.addRow(new Object[]{m.getId(), m.getNome(), m.getEspecialidade(), m.getCrm(), m.getTelefone(), m.getEmail()});
+        }
+    }
+    
+    
+    private void limparCampos(){
+        txtNome.setText("");
+        txtEspecialidade.setText("");
+        txtCRM.setText("");
+        txtTelefone.setText("");
+        txtEmail.setText("");
+    }
+    
+     
     /**
      * @param args the command line arguments
      */
@@ -249,13 +387,11 @@ public class CadastroMedicoView extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JTextField idMedico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -264,11 +400,14 @@ public class CadastroMedicoView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nomeMedico;
     private javax.swing.JTable tbMedico;
     private javax.swing.JTextField txtCRM;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEspecialidade;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+
+   
 }

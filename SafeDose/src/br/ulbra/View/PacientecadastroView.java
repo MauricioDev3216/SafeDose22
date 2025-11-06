@@ -50,10 +50,6 @@ public class PacientecadastroView extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
-        btnListar1 = new javax.swing.JButton();
-        btnExcluir1 = new javax.swing.JButton();
-        btnEditar1 = new javax.swing.JButton();
-        btnSalvar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,18 +105,6 @@ public class PacientecadastroView extends javax.swing.JFrame {
         btnExcluir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnExcluir.setText("Excluir");
 
-        btnListar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnListar1.setText("Listar");
-
-        btnExcluir1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnExcluir1.setText("Excluir");
-
-        btnEditar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnEditar1.setText("Editar");
-
-        btnSalvar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnSalvar1.setText("Salvar");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -160,25 +144,14 @@ public class PacientecadastroView extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 85, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(btnSalvar)
-                        .addGap(87, 87, 87)
-                        .addComponent(btnEditar)
-                        .addGap(93, 93, 93)
-                        .addComponent(btnExcluir)
-                        .addGap(67, 67, 67)
-                        .addComponent(btnListar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(btnSalvar1)
-                        .addGap(87, 87, 87)
-                        .addComponent(btnEditar1)
-                        .addGap(93, 93, 93)
-                        .addComponent(btnExcluir1)
-                        .addGap(67, 67, 67)
-                        .addComponent(btnListar1)))
+                .addGap(87, 87, 87)
+                .addComponent(btnSalvar)
+                .addGap(87, 87, 87)
+                .addComponent(btnEditar)
+                .addGap(93, 93, 93)
+                .addComponent(btnExcluir)
+                .addGap(67, 67, 67)
+                .addComponent(btnListar)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -228,13 +201,7 @@ public class PacientecadastroView extends javax.swing.JFrame {
                     .addComponent(btnSalvar)
                     .addComponent(btnListar)
                     .addComponent(btnExcluir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditar1)
-                    .addComponent(btnSalvar1)
-                    .addComponent(btnListar1)
-                    .addComponent(btnExcluir1))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
         );
@@ -290,13 +257,9 @@ public class PacientecadastroView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEditar1;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnExcluir1;
     private javax.swing.JButton btnListar;
-    private javax.swing.JButton btnListar1;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton btnSalvar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
