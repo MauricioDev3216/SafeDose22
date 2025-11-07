@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UsuarioDAO {
 
-    public void salvar(Usuario usuario) {
+    public void salvar(Usuario usuario)  {
         String sql = "INSERT INTO usuarios (nome, email, senha, tipo, data_nascimento, telefone, endereco) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -83,6 +83,25 @@ public class UsuarioDAO {
             System.err.println("Erro ao buscar usuário: " + e.getMessage());
         }
         return u;
+    }
+
+    public List<Usuario> listarPorTipo(String tipo) throws SQLException {
+        String sql = "SELECT * FROM usuarios WHERE tipo = ? ORDER BY nome";
+        List<Usuario> lista = new ArrayList<>();
+        try (Connection conn = AbstractDAO.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, tipo);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setUsuarioId(rs.getInt("usuario_id"));
+                u.setNome(rs.getString("nome"));
+                u.setEmail(rs.getString("email"));
+                u.setTipo(rs.getString("tipo"));
+                lista.add(u);
+            }
+        }
+        return lista;
     }
 
     public void atualizar(Usuario usuario) {
