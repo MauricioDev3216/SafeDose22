@@ -5,17 +5,23 @@
  */
 package br.ulbra.View;
 
-/**
- *
- * @author aluno.saolucas
- */
-public class MedicamentoscadastroView extends javax.swing.JFrame {
+import br.ulbra.DAO.MedicamentoDAO;
+import br.ulbra.Model.Medicamento;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
-    /**
-     * Creates new form MedicamentoscadastroView
-     */
+public class MedicamentoscadastroView extends javax.swing.JFrame {
+ 
+    
+     private MedicamentoDAO dao;
+  
     public MedicamentoscadastroView() {
         initComponents();
+        
+        setLocationRelativeTo(null); // Centraliza a tela
+        dao = new MedicamentoDAO();
+        atualizarTabela();
     }
 
     /**
@@ -32,11 +38,11 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        idMedicamentos = new javax.swing.JTextField();
+        txtMedicoId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtMedicamento = new javax.swing.JTextField();
+        txtUsuId = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtMedico = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
@@ -44,6 +50,8 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         tbMedicamentos = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         btnListar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtObs = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,54 +60,84 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Cadastro de Medicamentos");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, 78));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 78));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("ID:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 94, -1, -1));
-        jPanel2.add(idMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 90, 214, -1));
+        jLabel2.setText("Medico ID:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        jPanel2.add(txtMedicoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 180, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Medicamento:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-        jPanel2.add(txtMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 145, -1));
+        jLabel3.setText("Observações:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+        jPanel2.add(txtUsuId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 180, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("Médico");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 162, -1, -1));
-        jPanel2.add(txtMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 162, 192, -1));
+        jLabel4.setText("Usuario ID:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        jPanel2.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 180, -1));
 
         btnSalvar.setText("Salvar");
-        jPanel2.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 213, -1, -1));
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
         btnEditar.setText("Editar");
-        jPanel2.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 213, -1, -1));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
         btnExcluir.setText("Excluir");
-        jPanel2.add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 213, -1, -1));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
 
         tbMedicamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Medicamento", "Médico"
+                "Medico ID", "Usuario ID", "Medicamento", "Obs."
             }
         ));
+        tbMedicamentos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbMedicamentosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbMedicamentos);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 251, 473, 163));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 473, 163));
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(667, 90, -1, -1));
 
         btnListar.setText("Listar");
-        jPanel2.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 213, -1, -1));
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setText("Medicamento:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        jPanel2.add(txtObs, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 180, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,9 +149,7 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,6 +166,83 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+           try {
+            Medicamento m = new Medicamento();
+            m.setMedicoId(Integer.parseInt(txtMedicoId.getText()));
+            m.setUsuarioId(Integer.parseInt(txtUsuId.getText()));
+            m.setNome(txtNome.getText());
+            m.setObservacoes(txtObs.getText());
+
+            dao.salvar(m);
+            atualizarTabela();
+            JOptionPane.showMessageDialog(this, "Medicamento salvo com sucesso!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao salvar: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+    int linha = tbMedicamentos.getSelectedRow();
+        if (linha != -1) {
+            int id = (int) tbMedicamentos.getValueAt(linha, 0);
+            try {
+                Medicamento m = new Medicamento();
+                m.setId(id);
+                m.setMedicoId(Integer.parseInt(txtMedicoId.getText()));
+                m.setUsuarioId(Integer.parseInt(txtUsuId.getText()));
+                m.setNome(txtNome.getText());
+                m.setObservacoes(txtObs.getText());
+
+                dao.editar(m);
+                atualizarTabela();
+                JOptionPane.showMessageDialog(this, "Medicamento atualizado!");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Erro ao editar: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um item para editar.");
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+          int linha = tbMedicamentos.getSelectedRow();
+        if (linha != -1) {
+            int id = (int) tbMedicamentos.getValueAt(linha, 0);
+            dao.excluir(id);
+            atualizarTabela();
+            JOptionPane.showMessageDialog(this, "Medicamento excluído!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um item para excluir.");
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        atualizarTabela();
+    }//GEN-LAST:event_btnListarActionPerformed
+
+    private void tbMedicamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMedicamentosMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbMedicamentosMouseClicked
+
+      private void atualizarTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) tbMedicamentos.getModel();
+    modelo.setRowCount(0);
+
+    MedicamentoDAO dao = new MedicamentoDAO();
+    for (Medicamento m : dao.listar()) {
+        modelo.addRow(new Object[]{
+             m.getMedicoId(),
+             m.getUsuarioId(),
+             m.getNome(),
+             m.getObservacoes()
+            });
+        }
+    }
+
+  
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -170,18 +283,20 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JTextField idMedicamentos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbMedicamentos;
-    private javax.swing.JTextField txtMedicamento;
-    private javax.swing.JTextField txtMedico;
+    private javax.swing.JTextField txtMedicoId;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtObs;
+    private javax.swing.JTextField txtUsuId;
     // End of variables declaration//GEN-END:variables
 }
