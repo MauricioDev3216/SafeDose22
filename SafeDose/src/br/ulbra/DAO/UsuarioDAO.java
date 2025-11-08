@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UsuarioDAO {
 
-    public void salvar(Usuario usuario)  {
+    public void salvar(Usuario usuario) {
         String sql = "INSERT INTO usuarios (nome, email, senha, tipo, data_nascimento, telefone, endereco) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -18,7 +18,7 @@ public class UsuarioDAO {
             stmt.setString(2, usuario.getEmail());
             stmt.setString(3, usuario.getSenha());
             stmt.setString(4, usuario.getTipo());
-            stmt.setDate(5, usuario.getDataNascimento());
+            stmt.setString(5, usuario.getDataNascimento());
             stmt.setString(6, usuario.getTelefone());
             stmt.setString(7, usuario.getEndereco());
             stmt.executeUpdate();
@@ -43,7 +43,7 @@ public class UsuarioDAO {
                 u.setEmail(rs.getString("email"));
                 u.setSenha(rs.getString("senha"));
                 u.setTipo(rs.getString("tipo"));
-                u.setDataNascimento(rs.getDate("data_nascimento"));
+                u.setDataNascimento(rs.getString("data_nascimento"));
                 u.setTelefone(rs.getString("telefone"));
                 u.setEndereco(rs.getString("endereco"));
                 u.setCriadoEm(rs.getTimestamp("criado_em"));
@@ -52,6 +52,31 @@ public class UsuarioDAO {
 
         } catch (SQLException e) {
             System.err.println("Erro ao listar usuários: " + e.getMessage());
+        }
+        return lista;
+    }
+
+    public List<Usuario> listarPorTipo(String tipo) throws SQLException {
+        List<Usuario> lista = new ArrayList<>();
+        String sql = "SELECT * FROM usuarios WHERE tipo = ?";
+
+        try (Connection conn = AbstractDAO.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, tipo);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setUsuarioId(rs.getInt("usuario_id"));
+                u.setNome(rs.getString("nome"));
+                u.setEmail(rs.getString("email"));
+                u.setTipo(rs.getString("tipo"));
+                u.setDataNascimento(rs.getString("data_nascimento"));
+                u.setTelefone(rs.getString("telefone"));
+                u.setEndereco(rs.getString("endereco"));
+                lista.add(u);
+            }
         }
         return lista;
     }
@@ -73,7 +98,7 @@ public class UsuarioDAO {
                 u.setEmail(rs.getString("email"));
                 u.setSenha(rs.getString("senha"));
                 u.setTipo(rs.getString("tipo"));
-                u.setDataNascimento(rs.getDate("data_nascimento"));
+                u.setDataNascimento(rs.getString("data_nascimento"));
                 u.setTelefone(rs.getString("telefone"));
                 u.setEndereco(rs.getString("endereco"));
                 u.setCriadoEm(rs.getTimestamp("criado_em"));
@@ -85,24 +110,7 @@ public class UsuarioDAO {
         return u;
     }
 
-    public List<Usuario> listarPorTipo(String tipo) throws SQLException {
-        String sql = "SELECT * FROM usuarios WHERE tipo = ? ORDER BY nome";
-        List<Usuario> lista = new ArrayList<>();
-        try (Connection conn = AbstractDAO.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, tipo);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Usuario u = new Usuario();
-                u.setUsuarioId(rs.getInt("usuario_id"));
-                u.setNome(rs.getString("nome"));
-                u.setEmail(rs.getString("email"));
-                u.setTipo(rs.getString("tipo"));
-                lista.add(u);
-            }
-        }
-        return lista;
-    }
+    
 
     public void atualizar(Usuario usuario) {
         String sql = "UPDATE usuarios SET nome = ?, email = ?, senha = ?, tipo = ?, "
@@ -115,7 +123,7 @@ public class UsuarioDAO {
             stmt.setString(2, usuario.getEmail());
             stmt.setString(3, usuario.getSenha());
             stmt.setString(4, usuario.getTipo());
-            stmt.setDate(5, usuario.getDataNascimento());
+            stmt.setString(5, usuario.getDataNascimento());
             stmt.setString(6, usuario.getTelefone());
             stmt.setString(7, usuario.getEndereco());
             stmt.setInt(8, usuario.getUsuarioId());
@@ -155,7 +163,7 @@ public class UsuarioDAO {
                 u.setEmail(rs.getString("email"));
                 u.setSenha(rs.getString("senha"));
                 u.setTipo(rs.getString("tipo"));
-                u.setDataNascimento(rs.getDate("data_nascimento"));
+                u.setDataNascimento(rs.getString("data_nascimento"));
                 u.setTelefone(rs.getString("telefone"));
                 u.setEndereco(rs.getString("endereco"));
                 u.setCriadoEm(rs.getTimestamp("criado_em"));

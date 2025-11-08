@@ -1,6 +1,7 @@
 package br.ulbra.Model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Usuario {
 
@@ -9,7 +10,7 @@ public class Usuario {
     private String email;
     private String senha;
     private String tipo; // "PACIENTE" OU "CUIDADOR"
-    private Date dataNascimento;
+    private String dataNascimento;
     private String telefone;
     private String endereco;
     private java.sql.Timestamp criadoEm;
@@ -17,6 +18,34 @@ public class Usuario {
     public int getUsuarioId() {
         return usuarioId;
     }
+
+    public Usuario(int usuarioId, String nome, String email, String senha, String tipo, String dataNascimento, String telefone, String endereco, Timestamp criadoEm) {
+        this.usuarioId = usuarioId;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.tipo = tipo;
+        this.dataNascimento = dataNascimento;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.criadoEm = criadoEm;
+    }
+
+    public Usuario(int usuarioId, String nome, String email, String senha, String tipo, String dataNascimento, String telefone, String endereco) {
+        this.usuarioId = usuarioId;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.tipo = tipo;
+        this.dataNascimento = dataNascimento;
+        this.telefone = telefone;
+        this.endereco = endereco;
+    }
+    
+    public Usuario() {
+    }
+    
+    
 
     public void setUsuarioId(int usuarioId) {
         this.usuarioId = usuarioId;
@@ -54,11 +83,11 @@ public class Usuario {
         this.tipo = tipo;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
