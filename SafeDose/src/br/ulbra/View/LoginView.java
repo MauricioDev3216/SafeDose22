@@ -6,7 +6,7 @@
 package br.ulbra.View;
 
 import br.ulbra.Model.Usuario;
-import br.ulbra.controller.UsuarioController;
+import br.ulbra.Controller.UsuarioController;
 
 
 import java.sql.SQLException;
