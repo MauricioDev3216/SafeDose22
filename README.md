@@ -199,7 +199,7 @@ https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM
 
 ### 🧩 Papéis no Time
 
-* **Scrum Master:** [\Lucas Santos]
+* **Scrum Master:** [Lucas Santos]
 * **Product Owner (PO):** [Antônio Lesnik]
 * **Desenvolvedores:**
 
@@ -248,19 +248,6 @@ O **SafeDose** foi desenvolvido como parte do **Curso Técnico em Informática**
 * **Banco de Dados e DAO**
 * **Interface Gráfica (Java Swing)**
 * **Usabilidade e Acessibilidade Digital**
-
----
-
-## 👨‍💻 Autores
-
-* **Scrum Master:** [Lucas Santos]
-* **Product Owner (PO):** [Antônio Lesnik]
-* **Desenvolvedores:**
-
-  * [Pedro Algayer]
-  * [Arthur Postringer]
-  * [Mauricio de Campos]
-  * [Arthur de Brito]
 
 ---
 
