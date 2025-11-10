@@ -250,18 +250,6 @@ O **SafeDose** foi desenvolvido como parte do **Curso Técnico em Informática**
 
 ---
 
-## 👨‍💻 Autores
-
-* **Scrum Master:** [Lucas Santos]
-* **Product Owner (PO):** [Antônio Lesnik]
-* **Desenvolvedores:**
-
-  * [Pedro Algayer]
-  * [Arthur Postringer]
-  * [Mauricio de Campos]
-  * [Arthur de Brito]
-
----
 
 ## 💡 Ideia Central
 
