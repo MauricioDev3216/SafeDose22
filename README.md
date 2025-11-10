@@ -235,7 +235,8 @@ https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM
 **Diagrama de Classes Usuario e suas relações**
 <img width="1055" height="799" alt="image" src="https://github.com/user-attachments/assets/12527820-808a-4380-8ba5-2afad98e3cf2" />
 
-
+**Diagrama de Classes Medico e suas relações**
+<img width="1084" height="672" alt="image" src="https://github.com/user-attachments/assets/64f5d6fa-c02a-49cc-85ea-6d301553a5b2" />
 
 
 ## 🏫 Contexto Acadêmico
