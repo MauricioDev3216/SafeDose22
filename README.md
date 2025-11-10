@@ -89,58 +89,108 @@ SafeDose/
 
 O **SafeDose** possui uma interface desenvolvida em **Java Swing**, com foco em **acessibilidade, clareza e facilidade de uso**.
 
-### 💊 Tela de Cadastro de Medicamento
+## 🧑‍⚕️ Tela de Cadastro de Médico
 
-Permite registrar novos medicamentos com detalhes completos:
+Permite registrar informações de médicos vinculados ao sistema.
 
-* Nome do medicamento
-* Dosagem (ex: 500mg)
-* Frequência (ex: 1x ao dia, a cada 8h)
-* Horários específicos (ex: 08:00, 14:00, 22:00)
-* Início e término do tratamento
+### **Campos disponíveis:**
+* ID  
+* Especialidade  
+* Nome do médico  
+* CRM  
+* Telefone  
+* Email  
 
-**Funcionalidades:**
+### **Funcionalidades:**
+* Salvar, editar, excluir e listar registros  
+* Exibição organizada em tabela com todos os médicos cadastrados  
 
-* Adicionar, editar e remover medicamentos
-* Listagem completa com informações atualizadas
-
+### **Diferenciais:**
+* Interface simples e objetiva  
+* Permite integração direta com o cadastro de medicamentos  
 ---
 
+## 🧓 Tela de Cadastro de Cuidador
 
-**Opções disponíveis:**
+Destinada ao registro de cuidadores responsáveis pelos pacientes.
 
-* ✅ **Tomei** – confirma a medicação e registra no histórico
-* 🔁 **Adiar 10 minutos** – reprograma o alerta automaticamente
+### **Campos disponíveis:**
+* ID  
+* Nome  
+* Email  
+* Endereço  
+* Telefone  
+* Data de Nascimento  
+* Senha  
 
-**Diferenciais:**
+### **Funcionalidades:**
+* Inserir, editar, excluir e listar cuidadores  
+* Visualização em tabela completa  
 
-* Alertas suaves e personalizados
-* Sistema de notificações integrado ao histórico
-
+### **Diferenciais:**
+* Campos claros e bem organizados  
+* Ideal para controle de responsáveis e profissionais de apoio  
 ---
 
-### 📅 Tela de Histórico
+## 👩‍🦰 Tela de Cadastro de Paciente
 
-Permite acompanhar os medicamentos tomados e pendentes, com registros diários e filtragem por data.
+Permite o registro completo dos pacientes acompanhados no sistema.
 
-**Funcionalidades:**
+### **Campos disponíveis:**
+* ID  
+* Nome  
+* Email  
+* Endereço  
+* Telefone  
+* Data de Nascimento  
+* Senha  
 
-* Histórico completo de medicação
-* Consulta de dias anteriores
-* Exportação opcional em **PDF** ou **CSV** para uso médico
+### **Funcionalidades:**
+* Salvar, editar, listar, limpar e excluir registros  
+* Visualização em tabela dinâmica  
 
+### **Diferenciais:**
+* Interface intuitiva e padronizada  
+* Facilita o controle e atualização de dados pessoais  
 ---
 
-### 👵 Modo Acessível
+## 💊 Tela de Cadastro de Medicamentos
 
-Interface otimizada para todos os públicos:
+Permite registrar novos medicamentos e vincular a médicos e pacientes.
 
-* Botões grandes e cores de alto contraste
-* Fontes legíveis e ícones intuitivos (💊 cápsula, ⏰ relógio, ✅ check)
-* Navegação simples e fluida
+### **Campos disponíveis:**
+* Médico ID  
+* Usuário ID  
+* Medicamento  
+* Observações  
 
+### **Funcionalidades:**
+* Adicionar, editar, excluir e listar medicamentos  
+* Exibição organizada em tabela com todos os registros  
+
+### **Diferenciais:**
+* Integração direta com os cadastros de médico e paciente  
+* Foco em simplicidade e clareza no uso  
 ---
 
+## 🗂️ Tela de Menu de Cadastros
+
+Centraliza o acesso às principais telas do sistema.
+
+### **Opções disponíveis:**
+* Pacientes  
+* Rotina  
+* Medicamentos  
+* Médicos  
+* Cuidadores  
+
+### **Funcionalidades:**
+* Acesso rápido às telas de cadastro  
+* Campos de atalho configuráveis  
+
+### **Diferenciais:**
+* Navegação prática e centralizada  
+* Design limpo e coerente com o restante do sistema  
 
 ## 🧠 Metodologia de Desenvolvimento
 
