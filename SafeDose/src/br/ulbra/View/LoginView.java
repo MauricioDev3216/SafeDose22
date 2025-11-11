@@ -7,6 +7,7 @@ package br.ulbra.View;
 
 import br.ulbra.Model.Usuario;
 import br.ulbra.Controller.UsuarioController;
+import br.ulbra.Model.SessaoUsuario;
 
 
 import java.sql.SQLException;
@@ -149,9 +150,11 @@ public class LoginView extends javax.swing.JFrame {
 
         
         if (usuario.getTipo().equalsIgnoreCase("PACIENTE")) {
+            SessaoUsuario.setUsuarioLogado(usuario);
             new DashboardPacienteView().setVisible(true);
             this.dispose();
         } else if (usuario.getTipo().equalsIgnoreCase("CUIDADOR")) {
+            SessaoUsuario.setUsuarioLogado(usuario);
             new DashboardCuidadorView().setVisible(true);
             this.dispose();
         } else {
