@@ -32,7 +32,6 @@ public class DashboardCuidadorView extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,9 +61,6 @@ public class DashboardCuidadorView extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem4);
-
-        jMenuItem3.setText("Rotina");
-        jMenu1.add(jMenuItem3);
 
         jMenuItem2.setText("Medicamentos");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +148,6 @@ public class DashboardCuidadorView extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     // End of variables declaration//GEN-END:variables
