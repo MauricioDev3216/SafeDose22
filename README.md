@@ -49,7 +49,6 @@ SafeDose/
 │   │  └── MedicoController.java  
 │   ├── br/ulbra/DAO/              # Classes modelo (Medicamento, Alerta, Histórico)
 │   │   └── AbstractDAO.java 
-│   │   └── ConsultaDAO.java 
 │   │   └── CrudRepository.java
 │   │   └── HistóricoMedDAO.java 
 │   │   └── MedicamentoDAO.java
@@ -57,7 +56,6 @@ SafeDose/
 │   │   └── RotinaDAO.java
 │   │   └── UsuarioDAO.java
 │   ├── br/ulbra/Model/               # Telas (Login, Cadastro, Alertas, Histórico)
-│   │   └── Consulta.java 
 │   │   └── HistóricoMed.java 
 │   │   └── Medicamento.java
 │   │   └── Medico.java
@@ -66,7 +64,6 @@ SafeDose/
 │   │   └── Usuario.java
 │   └── br/ulbra/View/                # Classes de acesso a dados (DAO com SQLite ou JSON)
 │   │   └── CadastrMedicoView.java 
-│   │   └── ConsultasView.java 
 │   │   └── CuidadorView.java
 │   │   └── DashboardCuidadorView.java
 │   │   └── DashboardPacienteView.java 
