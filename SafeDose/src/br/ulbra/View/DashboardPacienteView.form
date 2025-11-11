@@ -19,20 +19,18 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="MenuConsultas">
+        <Menu class="javax.swing.JMenu" name="MenuRotinas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Consultas"/>
+            <Property name="text" type="java.lang.String" value="Rotina"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="miConsultas">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Consultas"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miRotinas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Rotinas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miRotinasActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

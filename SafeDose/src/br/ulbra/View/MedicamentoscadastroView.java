@@ -5,22 +5,123 @@
  */
 package br.ulbra.View;
 
+import br.ulbra.Controller.MedicamentoController;
+import br.ulbra.Controller.MedicoController;
+import br.ulbra.Controller.UsuarioController;
 import br.ulbra.DAO.MedicamentoDAO;
 import br.ulbra.Model.Medicamento;
+import br.ulbra.Model.Medico;
+import br.ulbra.Model.Usuario;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class MedicamentoscadastroView extends javax.swing.JFrame {
- 
-    
-     private MedicamentoDAO dao;
-  
+
+    private MedicamentoDAO dao;
+    private Map<String, Integer> mapaMedicos = new HashMap<>();
+    private Map<String, Integer> mapaPacientes = new HashMap<>();
+    private MedicamentoController controller;
+    private List<Medicamento> lista = new ArrayList<>();
+    private int medicamentoSelecionadoId = -1;
+
     public MedicamentoscadastroView() {
         initComponents();
-
+        controller = new MedicamentoController();
+        carregarMedicos();
+        carregarPacientes();
+        atualizarTabela();
+        setBotoes(0);
     }
 
+    private void limparCampos() {
+
+        txtNome.setText("");
+        txtObs.setText("");
+
+        cmbMedico.setSelectedIndex(-1);
+        cmbPaciente.setSelectedIndex(-1);
+
+        medicamentoSelecionadoId = -1;
+    }
+
+    public void setBotoes(int op) {
+        switch (op) {
+            case 1:
+                btnSalvar.setEnabled(false);
+                btnEditar.setEnabled(true);
+                btnExcluir.setEnabled(true);
+                break;
+            default:
+                btnSalvar.setEnabled(true);
+                btnEditar.setEnabled(false);
+                btnExcluir.setEnabled(false);
+
+        }
+    }
+
+    private void carregarMedicos() {
+        try {
+            MedicoController controller = new MedicoController();
+            List<Medico> medicos = controller.listar();
+
+            cmbMedico.removeAllItems();
+            mapaMedicos.clear();
+
+            for (Medico m : medicos) {
+                cmbMedico.addItem(m.getNome());
+                mapaMedicos.put(m.getNome(), m.getId());
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao carregar médicos: " + e.getMessage());
+        }
+    }
+
+    private void carregarPacientes() {
+        try {
+            UsuarioController controller = new UsuarioController();
+            List<Usuario> pacientes = controller.listarPacientes();
+
+            cmbPaciente.removeAllItems();
+            mapaPacientes.clear();
+
+            cmbPaciente.addItem("Selecione um paciente");
+
+            for (Usuario u : pacientes) {
+                cmbPaciente.addItem(u.getNome());
+                mapaPacientes.put(u.getNome(), u.getUsuarioId());
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao carregar pacientes: " + e.getMessage());
+        }
+    }
+
+    private void atualizarTabela() {
+        try {
+            javax.swing.table.DefaultTableModel modelTbl
+                    = (javax.swing.table.DefaultTableModel) tbMedicamentos.getModel();
+            modelTbl.setRowCount(0);
+
+            // Preenche a lista com o método do controller
+            lista = controller.listarComNomes();
+
+            for (Medicamento m : lista) {
+                modelTbl.addRow(new Object[]{
+                    m.getNomeMedico(),
+                    m.getNomePaciente(),
+                    m.getNome(),
+                    m.getObservacoes()
+                });
+            }
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Erro ao listar medicamentos: " + ex.getMessage());
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -43,7 +144,7 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         btnListar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtObs = new javax.swing.JTextField();
-        cmbMedicos = new javax.swing.JComboBox<>();
+        cmbMedico = new javax.swing.JComboBox<>();
         cmbPaciente = new javax.swing.JComboBox<>();
         btnLimpar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
@@ -106,7 +207,7 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Medico ID", "Usuario ID", "Medicamento", "Obs."
+                "Medico", "Paciente", "Medicamento", "Obs."
             }
         ));
         tbMedicamentos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -132,13 +233,18 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
         jPanel2.add(txtObs, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 180, -1));
 
-        cmbMedicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(cmbMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
+        cmbMedico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(cmbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
 
         cmbPaciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel2.add(cmbPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
 
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
 
         btnVoltar.setText("Voltar");
@@ -177,24 +283,113 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        try {
+            String nomeMed = txtNome.getText().trim();
+            String obs = txtObs.getText().trim();
 
-        
+            if (nomeMed.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Informe o nome do medicamento!");
+                return;
+            }
+
+            String nomeMedico = (String) cmbMedico.getSelectedItem();
+            String nomePaciente = (String) cmbPaciente.getSelectedItem();
+
+            if (nomeMedico == null || nomePaciente == null) {
+                JOptionPane.showMessageDialog(this, "Selecione um médico e um paciente!");
+                return;
+            }
+
+            int idMedico = mapaMedicos.get(nomeMedico);
+            int idPaciente = mapaPacientes.get(nomePaciente);
+
+            Medicamento med = new Medicamento(idMedico, idPaciente, nomeMed, obs);
+            controller.salvar(med);
+
+            JOptionPane.showMessageDialog(this, "Medicamento salvo com sucesso!");
+            atualizarTabela();
+            limparCampos();
+
+        } catch (Exception ex) {
+            ex.printStackTrace(); // Mostra no console
+            JOptionPane.showMessageDialog(this,
+                    "Erro ao salvar: " + ex.getClass().getName() + " - " + ex.getMessage());
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if (medicamentoSelecionadoId == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione um medicamento na tabela para editar!");
+            return;
+        }
 
+        try {
+            String nomeMedicamento = txtNome.getText().trim();
+            String observacoes = txtObs.getText().trim();
+            String nomeMedico = (String) cmbMedico.getSelectedItem();
+            String nomePaciente = (String) cmbPaciente.getSelectedItem();
+
+            int idMedico = mapaMedicos.get(nomeMedico);
+            int idPaciente = mapaPacientes.get(nomePaciente);
+
+            Medicamento m = new Medicamento();
+            m.setId(medicamentoSelecionadoId);
+            m.setMedicoId(idMedico);
+            m.setUsuarioId(idPaciente);
+            m.setNome(nomeMedicamento);
+            m.setObservacoes(observacoes);
+
+            controller.editar(m);
+            JOptionPane.showMessageDialog(this, "Medicamento atualizado com sucesso!");
+            atualizarTabela();
+            limparCampos();
+            setBotoes(0);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao editar medicamento: " + e.getMessage());
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        if (medicamentoSelecionadoId <= 0) {
+            JOptionPane.showMessageDialog(null, "Selecione um medicamento na tabela para excluir.");
+            return;
+        }
 
+        int confirm = JOptionPane.showConfirmDialog(
+                null,
+                "Tem certeza que deseja excluir este medicamento?",
+                "Confirmar exclusão",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            MedicamentoDAO dao = new MedicamentoDAO();
+            dao.excluir(medicamentoSelecionadoId);
+
+            atualizarTabela();
+            limparCampos();
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-
+        atualizarTabela();
+        limparCampos();
+        setBotoes(0);
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void tbMedicamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbMedicamentosMouseClicked
-        // TODO add your handling code here:
+        int selectedRow = tbMedicamentos.getSelectedRow();
+        setBotoes(1);
+        if (selectedRow >= 0 && lista != null && !lista.isEmpty()) {
+            Medicamento med = lista.get(selectedRow);
+            medicamentoSelecionadoId = med.getId();
+
+            txtNome.setText(med.getNome());
+            txtObs.setText(med.getObservacoes());
+            cmbMedico.setSelectedItem(med.getNomeMedico());
+            cmbPaciente.setSelectedItem(med.getNomePaciente());
+        }
     }//GEN-LAST:event_tbMedicamentosMouseClicked
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -202,7 +397,11 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-     
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        limparCampos();
+        setBotoes(0);
+    }//GEN-LAST:event_btnLimparActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -242,7 +441,7 @@ public class MedicamentoscadastroView extends javax.swing.JFrame {
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JComboBox<String> cmbMedicos;
+    private javax.swing.JComboBox<String> cmbMedico;
     private javax.swing.JComboBox<String> cmbPaciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

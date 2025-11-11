@@ -30,8 +30,7 @@ public class DashboardPacienteView extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuPerfil = new javax.swing.JMenu();
         miPerfil = new javax.swing.JMenuItem();
-        MenuConsultas = new javax.swing.JMenu();
-        miConsultas = new javax.swing.JMenuItem();
+        MenuRotinas = new javax.swing.JMenu();
         miRotinas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,15 +47,17 @@ public class DashboardPacienteView extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuPerfil);
 
-        MenuConsultas.setText("Consultas");
-
-        miConsultas.setText("Consultas");
-        MenuConsultas.add(miConsultas);
+        MenuRotinas.setText("Rotina");
 
         miRotinas.setText("Rotinas");
-        MenuConsultas.add(miRotinas);
+        miRotinas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miRotinasActionPerformed(evt);
+            }
+        });
+        MenuRotinas.add(miRotinas);
 
-        jMenuBar1.add(MenuConsultas);
+        jMenuBar1.add(MenuRotinas);
 
         setJMenuBar(jMenuBar1);
 
@@ -78,6 +79,11 @@ public class DashboardPacienteView extends javax.swing.JFrame {
         new PerfilPacienteView().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_miPerfilActionPerformed
+
+    private void miRotinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRotinasActionPerformed
+        new RotinasView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_miRotinasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,10 +121,9 @@ public class DashboardPacienteView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu MenuConsultas;
     private javax.swing.JMenu MenuPerfil;
+    private javax.swing.JMenu MenuRotinas;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem miConsultas;
     private javax.swing.JMenuItem miPerfil;
     private javax.swing.JMenuItem miRotinas;
     // End of variables declaration//GEN-END:variables

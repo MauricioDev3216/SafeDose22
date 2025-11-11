@@ -354,6 +354,7 @@ public class CadastroMedicoView extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Atualizado com sucesso!");
             atualizarTabela();
             limparCampos();
+            setBotoes(0);
 
         } catch (NumberFormatException nfe) {
             javax.swing.JOptionPane.showMessageDialog(this, "Selecione um médico para atualizar");
@@ -384,6 +385,7 @@ public class CadastroMedicoView extends javax.swing.JFrame {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         atualizarTabela();
+        limparCampos();
         setBotoes(0);
     }//GEN-LAST:event_btnListarActionPerformed
 

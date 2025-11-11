@@ -390,6 +390,7 @@ try {
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         limparCampos();
+        limparCampos();
         setBotoes(0);
     }//GEN-LAST:event_btnLimparActionPerformed
 

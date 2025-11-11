@@ -26,4 +26,8 @@ public class MedicamentoController {
     public List<Medicamento> listar() {
         return dao.listar();
     }
+
+    public List<Medicamento> listarComNomes() {
+        return dao.listarComNomes();
+    }
 }
