@@ -67,14 +67,16 @@ public class UsuarioDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Usuario u = new Usuario();
-                u.setUsuarioId(rs.getInt("usuario_id"));
-                u.setNome(rs.getString("nome"));
-                u.setEmail(rs.getString("email"));
-                u.setTipo(rs.getString("tipo"));
-                u.setDataNascimento(rs.getString("data_nascimento"));
-                u.setTelefone(rs.getString("telefone"));
-                u.setEndereco(rs.getString("endereco"));
+                Usuario u = new Usuario(
+                        rs.getInt("usuario_id"),
+                        rs.getString("nome"),
+                        rs.getString("email"),
+                        rs.getString("senha"),
+                        rs.getString("tipo"),
+                        rs.getString("data_nascimento"),
+                        rs.getString("telefone"),
+                        rs.getString("endereco")
+                );
                 lista.add(u);
             }
         }
@@ -110,8 +112,6 @@ public class UsuarioDAO {
         return u;
     }
 
-    
-
     public void atualizar(Usuario usuario) {
         String sql = "UPDATE usuarios SET nome = ?, email = ?, senha = ?, tipo = ?, "
                 + "data_nascimento = ?, telefone = ?, endereco = ? WHERE usuario_id = ?";
@@ -127,6 +127,7 @@ public class UsuarioDAO {
             stmt.setString(6, usuario.getTelefone());
             stmt.setString(7, usuario.getEndereco());
             stmt.setInt(8, usuario.getUsuarioId());
+
             stmt.executeUpdate();
 
         } catch (SQLException e) {
