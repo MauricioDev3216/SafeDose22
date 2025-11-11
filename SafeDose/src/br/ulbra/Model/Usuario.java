@@ -31,7 +31,8 @@ public class Usuario {
         this.criadoEm = criadoEm;
     }
 
-    public Usuario(int usuarioId, String nome, String email, String senha, String tipo, String dataNascimento, String telefone, String endereco) {
+    public Usuario(int usuarioId, String nome, String email, String senha, String tipo,
+            String dataNascimento, String telefone, String endereco) {
         this.usuarioId = usuarioId;
         this.nome = nome;
         this.email = email;
@@ -41,11 +42,11 @@ public class Usuario {
         this.telefone = telefone;
         this.endereco = endereco;
     }
+
     
+
     public Usuario() {
     }
-    
-    
 
     public void setUsuarioId(int usuarioId) {
         this.usuarioId = usuarioId;
