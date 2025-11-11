@@ -174,7 +174,7 @@ public class UsuarioDAO {
         return null;
     }
 
-    public Usuario autenticar(String email, String senha) {
+    public Usuario autenticar(String email, String senha) throws SQLException {
         String sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
         Usuario u = null;
 
@@ -183,6 +183,7 @@ public class UsuarioDAO {
 
             stmt.setString(1, email);
             stmt.setString(2, senha);
+
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
@@ -190,12 +191,17 @@ public class UsuarioDAO {
                 u.setUsuarioId(rs.getInt("usuario_id"));
                 u.setNome(rs.getString("nome"));
                 u.setEmail(rs.getString("email"));
+                u.setSenha(rs.getString("senha"));
                 u.setTipo(rs.getString("tipo"));
+                u.setDataNascimento(rs.getString("data_nascimento"));
+                u.setTelefone(rs.getString("telefone"));
+                u.setEndereco(rs.getString("endereco"));
             }
-
         } catch (SQLException e) {
             System.err.println("Erro ao autenticar usuário: " + e.getMessage());
+            throw e;
         }
+
         return u;
     }
 }
