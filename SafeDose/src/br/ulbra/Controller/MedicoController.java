@@ -2,62 +2,45 @@ package br.ulbra.Controller;
 
 import br.ulbra.DAO.MedicoDAO;
 import br.ulbra.Model.Medico;
+import java.sql.SQLException;
 import java.util.List;
 
 public class MedicoController {
 
-    private final MedicoDAO medicoDAO;
+    private final MedicoDAO dao = new MedicoDAO();
 
-    public MedicoController() {
-        medicoDAO = new MedicoDAO();
+    // 🔹 Salvar novo médico
+    public void salvar(Medico m) throws SQLException {
+        dao.salvar(m);
     }
 
-    public boolean salvarMedico(String nome, String especialidade, String crm, String telefone, String email) {
-        if (nome.isEmpty() || crm.isEmpty()) {
-            System.out.println("Nome e CRM são obrigatórios!");
-            return false;
-        }
-
-        Medico m = new Medico();
-        m.setNome(nome);
-        m.setEspecialidade(especialidade);
-        m.setCrm(crm);
-        m.setTelefone(telefone);
-        m.setEmail(email);
-
-        medicoDAO.salvar(m);
-        return true;
+    // 🔹 Buscar médico por ID
+    public Medico buscar(int id) throws SQLException {
+        return dao.buscarPorId(id);
     }
 
-    public boolean editarMedico(int id, String nome, String especialidade, String crm, String telefone, String email) {
-        if (id <= 0) {
-            System.out.println("ID inválido!");
-            return false;
-        }
-
-        Medico m = new Medico();
-        m.setId(id);
-        m.setNome(nome);
-        m.setEspecialidade(especialidade);
-        m.setCrm(crm);
-        m.setTelefone(telefone);
-        m.setEmail(email);
-
-        medicoDAO.editar(m);
-        return true;
+    // 🔹 Listar todos os médicos
+    public List<Medico> listar() throws SQLException {
+        return dao.listar();
     }
 
-    public boolean excluirMedico(int id) {
-        if (id <= 0) {
-            System.out.println("ID inválido!");
-            return false;
-        }
-
-        medicoDAO.excluir(id);
-        return true;
+    // 🔹 Atualizar dados de um médico existente
+    public void atualizar(Medico m) throws SQLException {
+        dao.editar(m);
     }
 
-    public List<Medico> listarMedicos() {
-        return medicoDAO.listar();
+    // 🔹 Remover médico pelo ID
+    public void remover(int id) throws SQLException {
+        dao.excluir(id);
+    }
+
+    // 🔹 (Opcional) Buscar médico pelo CRM — útil para evitar duplicados
+    public Medico buscarPorCrm(String crm) throws SQLException {
+        return dao.buscarPorCrm(crm);
+    }
+
+    // 🔹 (Opcional) Buscar médico pelo e-mail — se houver login
+    public Medico buscarPorEmail(String email) throws SQLException {
+        return dao.buscarPorEmail(email);
     }
 }

@@ -82,4 +82,82 @@ public class MedicoDAO extends AbstractDAO {
         }
         return lista;
     }
+
+    // BUSCAR POR ID
+    public Medico buscarPorId(int id) {
+        Medico m = null;
+        String sql = "SELECT * FROM medicos WHERE medico_id=?";
+        try (Connection con = getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                m = new Medico();
+                m.setId(rs.getInt("medico_id"));
+                m.setNome(rs.getString("nome"));
+                m.setEspecialidade(rs.getString("especialidade"));
+                m.setCrm(rs.getString("crm"));
+                m.setTelefone(rs.getString("telefone"));
+                m.setEmail(rs.getString("email"));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar médico por ID: " + e.getMessage());
+        }
+        return m;
+    }
+
+    // BUSCAR POR CRM
+    public Medico buscarPorCrm(String crm) {
+        Medico m = null;
+        String sql = "SELECT * FROM medicos WHERE crm=?";
+        try (Connection con = getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, crm);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                m = new Medico();
+                m.setId(rs.getInt("medico_id"));
+                m.setNome(rs.getString("nome"));
+                m.setEspecialidade(rs.getString("especialidade"));
+                m.setCrm(rs.getString("crm"));
+                m.setTelefone(rs.getString("telefone"));
+                m.setEmail(rs.getString("email"));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar médico por CRM: " + e.getMessage());
+        }
+        return m;
+    }
+
+    // BUSCAR POR EMAIL
+    public Medico buscarPorEmail(String email) {
+        Medico m = null;
+        String sql = "SELECT * FROM medicos WHERE email=?";
+        try (Connection con = getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                m = new Medico();
+                m.setId(rs.getInt("medico_id"));
+                m.setNome(rs.getString("nome"));
+                m.setEspecialidade(rs.getString("especialidade"));
+                m.setCrm(rs.getString("crm"));
+                m.setTelefone(rs.getString("telefone"));
+                m.setEmail(rs.getString("email"));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar médico por email: " + e.getMessage());
+        }
+        return m;
+    }
 }
