@@ -9,10 +9,13 @@
             <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/Controller/UsuarioController.java</file>
             <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/View/LoginView.java</file>
             <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/Model/Usuario.java</file>
+            <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/Model/Medico.java</file>
+            <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/View/PerfilPacienteView.java</file>
             <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/View/ConsultasView.java</file>
             <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/DAO/UsuarioDAO.java</file>
-            <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/View/DashboardPacienteView.java</file>
             <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/View/MedicamentoscadastroView.java</file>
+            <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/Model/SessaoUsuario.java</file>
+            <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/View/DashboardPacienteView.java</file>
             <file>file:/C:/Users/Pedro/Documents/NetBeansProjects/SafeDose22/SafeDose/src/br/ulbra/View/PacientecadastroView.java</file>
         </group>
     </open-files>
