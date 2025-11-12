@@ -136,6 +136,7 @@ public class UsuarioDAO {
     }
 
     public void remover(int id) {
+
         String sql = "DELETE FROM usuarios WHERE usuario_id = ?";
 
         try (Connection conn = AbstractDAO.getConnection();
@@ -146,6 +147,42 @@ public class UsuarioDAO {
 
         } catch (SQLException e) {
             System.err.println("Erro ao excluir usuário: " + e.getMessage());
+        }
+    }
+
+    public void removerPaciente(int id) {
+        String sqlMedicamentos = "DELETE FROM medicamentos WHERE usuario_id = ?";
+        String sqlUsuario = "DELETE FROM usuarios WHERE usuario_id = ?";
+
+        try (Connection conn = AbstractDAO.getConnection()) {
+
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement stmtMedic = conn.prepareStatement(sqlMedicamentos)) {
+                stmtMedic.setInt(1, id);
+                stmtMedic.executeUpdate();
+            }
+
+            try (PreparedStatement stmtUsuario = conn.prepareStatement(sqlUsuario)) {
+                stmtUsuario.setInt(1, id);
+                stmtUsuario.executeUpdate();
+            }
+
+            conn.commit();
+
+        } catch (SQLException e) {
+            try {
+                System.err.println("Erro, desfazendo alterações: " + e.getMessage());
+                AbstractDAO.getConnection().rollback();
+            } catch (SQLException ex) {
+                System.err.println("Erro ao dar rollback: " + ex.getMessage());
+            }
+        } finally {
+            try {
+                AbstractDAO.getConnection().setAutoCommit(true);
+            } catch (SQLException ex) {
+                System.err.println("Erro ao reativar auto-commit: " + ex.getMessage());
+            }
         }
     }
 

@@ -362,7 +362,7 @@ public class PacientecadastroView extends javax.swing.JFrame {
             if (confirm != javax.swing.JOptionPane.YES_OPTION) {
                 return;
             }
-            controller.remover(id);
+            controller.removerPaciente(id);
             javax.swing.JOptionPane.showMessageDialog(this, "Removido");
             atualizarTabela();
             limparCampos();
@@ -382,9 +382,9 @@ public class PacientecadastroView extends javax.swing.JFrame {
             txtID.setText(tbPaciente.getValueAt(linha, 0).toString());
             txtNome.setText(tbPaciente.getValueAt(linha, 1).toString());
             txtEmail.setText(tbPaciente.getValueAt(linha, 2).toString());
-            txtNascimento.setText(tbPaciente.getValueAt(linha, 3).toString()); // nascimento
-            txtTelefone.setText(tbPaciente.getValueAt(linha, 4).toString());   // telefone
-            txtEndereco.setText(tbPaciente.getValueAt(linha, 5).toString());   // endereço
+            txtNascimento.setText(tbPaciente.getValueAt(linha, 3).toString()); 
+            txtTelefone.setText(tbPaciente.getValueAt(linha, 4).toString());   
+            txtEndereco.setText(tbPaciente.getValueAt(linha, 5).toString());   
         }
         setBotoes(1);
     }//GEN-LAST:event_tbPacienteMouseClicked

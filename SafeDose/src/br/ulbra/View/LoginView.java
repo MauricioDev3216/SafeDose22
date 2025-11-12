@@ -134,36 +134,35 @@ public class LoginView extends javax.swing.JFrame {
         String email = txtEmail.getText().trim();
         String senha = new String(txtSenha.getPassword()).trim();
 
-    if (email.isEmpty() || senha.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos.");
-        return;
-    }
-
-    UsuarioController controller = new UsuarioController();
-    try {
-        Usuario usuario = controller.autenticar(email, senha);
-
-        if (usuario == null) {
-            JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos.");
+        if (email.isEmpty() || senha.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos.");
             return;
         }
 
-        
-        if (usuario.getTipo().equalsIgnoreCase("PACIENTE")) {
-            SessaoUsuario.setUsuarioLogado(usuario);
-            new DashboardPacienteView().setVisible(true);
-            this.dispose();
-        } else if (usuario.getTipo().equalsIgnoreCase("CUIDADOR")) {
-            SessaoUsuario.setUsuarioLogado(usuario);
-            new DashboardCuidadorView().setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Tipo de usuário não reconhecido: " + usuario.getTipo());
-        }
+        UsuarioController controller = new UsuarioController();
+        try {
+            Usuario usuario = controller.autenticar(email, senha);
 
-    } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(this, "Erro ao acessar o banco de dados: " + ex.getMessage());
-    }
+            if (usuario == null) {
+                JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos.");
+                return;
+            }
+
+            if (usuario.getTipo().equalsIgnoreCase("PACIENTE")) {
+                SessaoUsuario.setUsuarioLogado(usuario);
+                new DashboardPacienteView().setVisible(true);
+                this.dispose();
+            } else if (usuario.getTipo().equalsIgnoreCase("CUIDADOR")) {
+                SessaoUsuario.setUsuarioLogado(usuario);
+                new DashboardCuidadorView().setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Tipo de usuário não reconhecido: " + usuario.getTipo());
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Erro ao acessar o banco de dados: " + ex.getMessage());
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**

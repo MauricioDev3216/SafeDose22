@@ -11,7 +11,7 @@ public class MedicoDAO extends AbstractDAO {
     public void salvar(Medico medico) {
         String sql = "INSERT INTO medicos (nome, especialidade, crm, telefone, email) VALUES (?, ?, ?, ?, ?)";
         try (Connection con = getConnection();
-             PreparedStatement stmt = con.prepareStatement(sql)) {
+                PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setString(1, medico.getNome());
             stmt.setString(2, medico.getEspecialidade());
@@ -29,7 +29,7 @@ public class MedicoDAO extends AbstractDAO {
     public void editar(Medico medico) {
         String sql = "UPDATE medicos SET nome=?, especialidade=?, crm=?, telefone=?, email=? WHERE medico_id=?";
         try (Connection con = getConnection();
-             PreparedStatement stmt = con.prepareStatement(sql)) {
+                PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setString(1, medico.getNome());
             stmt.setString(2, medico.getEspecialidade());
@@ -44,17 +44,40 @@ public class MedicoDAO extends AbstractDAO {
         }
     }
 
-    // EXCLUIR
     public void excluir(int id) {
-        String sql = "DELETE FROM medicos WHERE medico_id=?";
-        try (Connection con = getConnection();
-             PreparedStatement stmt = con.prepareStatement(sql)) {
+        String sqlMedicamentos = "DELETE FROM medicamentos WHERE medico_id = ?";
+        String sqlMedico = "DELETE FROM medicos WHERE medico_id = ?";
 
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
+        try (Connection conn = getConnection()) {
+
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement stmtMedic = conn.prepareStatement(sqlMedicamentos)) {
+                stmtMedic.setInt(1, id);
+                stmtMedic.executeUpdate();
+            }
+
+            try (PreparedStatement stmtMedico = conn.prepareStatement(sqlMedico)) {
+                stmtMedico.setInt(1, id);
+                stmtMedico.executeUpdate();
+            }
+
+            conn.commit();
+            System.out.println("Médico e seus medicamentos excluídos com sucesso!");
 
         } catch (SQLException e) {
-            System.out.println("Erro ao excluir médico: " + e.getMessage());
+            try {
+                System.err.println("Erro, desfazendo alterações: " + e.getMessage());
+                getConnection().rollback();
+            } catch (SQLException ex) {
+                System.err.println("Erro ao dar rollback: " + ex.getMessage());
+            }
+        } finally {
+            try {
+                getConnection().setAutoCommit(true);
+            } catch (SQLException ex) {
+                System.err.println("Erro ao reativar auto-commit: " + ex.getMessage());
+            }
         }
     }
 
@@ -63,8 +86,8 @@ public class MedicoDAO extends AbstractDAO {
         List<Medico> lista = new ArrayList<>();
         String sql = "SELECT * FROM medicos";
         try (Connection con = getConnection();
-             PreparedStatement stmt = con.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+                PreparedStatement stmt = con.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 Medico m = new Medico();
@@ -88,7 +111,7 @@ public class MedicoDAO extends AbstractDAO {
         Medico m = null;
         String sql = "SELECT * FROM medicos WHERE medico_id=?";
         try (Connection con = getConnection();
-             PreparedStatement stmt = con.prepareStatement(sql)) {
+                PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
@@ -114,7 +137,7 @@ public class MedicoDAO extends AbstractDAO {
         Medico m = null;
         String sql = "SELECT * FROM medicos WHERE crm=?";
         try (Connection con = getConnection();
-             PreparedStatement stmt = con.prepareStatement(sql)) {
+                PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setString(1, crm);
             ResultSet rs = stmt.executeQuery();
@@ -140,7 +163,7 @@ public class MedicoDAO extends AbstractDAO {
         Medico m = null;
         String sql = "SELECT * FROM medicos WHERE email=?";
         try (Connection con = getConnection();
-             PreparedStatement stmt = con.prepareStatement(sql)) {
+                PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
