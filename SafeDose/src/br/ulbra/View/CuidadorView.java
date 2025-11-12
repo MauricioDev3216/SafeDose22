@@ -417,6 +417,7 @@ try {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         atualizarTabela();
+        limparCampos();
         setBotoes(0);
     }//GEN-LAST:event_btnListarActionPerformed
 

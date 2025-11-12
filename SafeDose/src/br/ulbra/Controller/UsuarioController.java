@@ -36,6 +36,10 @@ public class UsuarioController {
     public void remover(int id) throws SQLException {
         dao.remover(id);
     }
+    
+    public void removerPaciente(int id) throws SQLException {
+        dao.removerPaciente(id);
+    }
 
     // 🔹 Novo: buscar usuário por e-mail (ex: para evitar duplicado)
     public Usuario buscarPorEmail(String email) throws SQLException {
