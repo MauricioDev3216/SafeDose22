@@ -210,7 +210,8 @@ https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM
 <img width="396" height="328" alt="image" src="https://github.com/user-attachments/assets/ec5cd58b-7060-4a8b-af56-9d4fd72194ab" />
 <img width="906" height="739" alt="image" src="https://github.com/user-attachments/assets/d80c0add-f0ed-4c93-ac9b-088642376a4a" />
 <img width="890" height="715" alt="image" src="https://github.com/user-attachments/assets/b44976a7-1599-483c-9056-53e870c68b6f" />
-<img width="798" height="613" alt="image" src="https://github.com/user-attachments/assets/086e3b9b-ec64-4fe7-9ff4-1c4866a8d5d0" />
+<img width="801" height="613" alt="image" src="https://github.com/user-attachments/assets/08a7a2da-ffe2-46fe-b1b4-da005a1a0cc8" />
+
 <img width="398" height="332" alt="image" src="https://github.com/user-attachments/assets/776b7095-5e35-4199-8148-4400cd876c01" />
 <img width="565" height="575" alt="image" src="https://github.com/user-attachments/assets/06fdd182-ebda-4709-8d57-4ea76cec1314" />
 <img width="711" height="508" alt="image" src="https://github.com/user-attachments/assets/e2d5e7e1-129c-4900-bc44-513cc1326475" />
