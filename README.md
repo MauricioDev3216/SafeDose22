@@ -1,4 +1,5 @@
-# 🩺 SafeDose – Sistema de Gestão de Medicamentos
+
+ 🩺 SafeDose – Sistema de Gestão de Medicamentos
 
 O **SafeDose** é um sistema desktop desenvolvido em **Java** com **Swing**, projetado para ajudar usuários a **organizar o uso de medicamentos de forma segura**, definindo **horários**, e acompanhando o **histórico de uso**.
 
