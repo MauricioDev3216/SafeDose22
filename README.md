@@ -223,7 +223,8 @@ https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM
 ## Diagramas
 
 **Diagrama de Casos de Uso**
-<img width="1477" height="1600" alt="image" src="https://github.com/user-attachments/assets/1e17fbbb-7072-4469-ba71-651adb44d21e" />
+<img width="624" height="784" alt="image" src="https://github.com/user-attachments/assets/8e33fa2d-204e-407a-a4cd-505e2c0911a8" />
+
 
 
 **Diagrama de Classes**
