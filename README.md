@@ -252,6 +252,53 @@ https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM
 
 
 🏦 **Banco de Dados** 
+ CREATE DATABASE IF NOT EXISTS safedose22;
+USE safedose22;
+
+
+CREATE TABLE usuarios (
+    usuario_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL, 
+    tipo VARCHAR(20) NOT NULL, 
+    data_nascimento VARCHAR(20) NULL,
+    telefone VARCHAR(20),
+    endereco VARCHAR(200),
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE medicos (
+    medico_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    especialidade VARCHAR(100),
+    crm VARCHAR(20) UNIQUE,
+    telefone VARCHAR(20),
+    email VARCHAR(150)
+);
+
+
+CREATE TABLE medicamentos (
+    medicamento_id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL, 
+    medico_id INT,           
+    nome VARCHAR(150) NOT NULL, 
+    observacoes VARCHAR(255),
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+    FOREIGN KEY (medico_id) REFERENCES medicos(medico_id)
+);
+
+
+CREATE TABLE rotinas (
+    rotina_id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,  
+    medicamento_id INT NOT NULL, 
+    horario TIME NOT NULL,
+    dias_semana VARCHAR(50) DEFAULT 'TODOS', 
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+    FOREIGN KEY (medicamento_id) REFERENCES medicamentos(medicamento_id)
+);
 
 ## 🏫 Contexto Acadêmico
 
