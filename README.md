@@ -240,6 +240,8 @@ https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM
 **Diagrama de Classes Rotinas, Medico, Medicamento e suas relações**
 <img width="1310" height="861" alt="image" src="https://github.com/user-attachments/assets/2da356ac-c167-4b21-a8fc-ee2be7593551" />
 
+**Diagrama de Entidade de Relacionamento**
+<img width="725" height="375" alt="image" src="https://github.com/user-attachments/assets/71a9401e-6e5e-4052-b131-2b287bec5b7b" />
 
 
 ## 🏫 Contexto Acadêmico
