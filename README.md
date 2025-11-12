@@ -44,13 +44,13 @@ Seu foco principal é a **acessibilidade e praticidade**, oferecendo uma interfa
 SafeDose/
 ├── src/
 │   └── br/ulbra/controller/         # Controladores do sistema
+│   │  └── MedicamentoController
 │   │  └── CuidadorController.java
-│   │  └── MedicoController.java
+│   │  └── RotinaController.java
 │   │  └── MedicoController.java  
 │   ├── br/ulbra/DAO/              # Classes modelo (Medicamento, Alerta, Histórico)
 │   │   └── AbstractDAO.java 
 │   │   └── CrudRepository.java
-│   │   └── HistóricoMedDAO.java 
 │   │   └── MedicamentoDAO.java
 │   │   └── MedicoDAO.java
 │   │   └── RotinaDAO.java
@@ -59,7 +59,7 @@ SafeDose/
 │   │   └── Medicamento.java
 │   │   └── Medico.java
 │   │   └── Rotina.java
-│   │   └── RotinaMedicamento.java
+│   │   └── HistoricoMed
 │   │   └── Usuario.java
 │   │   └── SessaoUsuario.java
 │   └── br/ulbra/View/                # Classes de acesso a dados (DAO com SQLite ou JSON)
