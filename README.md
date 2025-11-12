@@ -251,7 +251,7 @@ https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM
 <img width="725" height="375" alt="image" src="https://github.com/user-attachments/assets/71a9401e-6e5e-4052-b131-2b287bec5b7b" />
 
 
-**Banco de Dados** 🏦
+🏦 **Banco de Dados** 
 
 ## 🏫 Contexto Acadêmico
 
