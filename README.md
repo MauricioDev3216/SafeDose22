@@ -56,14 +56,14 @@ SafeDose/
 │   │   └── RotinaDAO.java
 │   │   └── UsuarioDAO.java
 │   ├── br/ulbra/Model/               # Telas (Login, Cadastro, Alertas, Histórico)
-│   │   └── HistóricoMed.java 
 │   │   └── Medicamento.java
 │   │   └── Medico.java
 │   │   └── Rotina.java
 │   │   └── RotinaMedicamento.java
 │   │   └── Usuario.java
+│   │   └── SessaoUsuario.java
 │   └── br/ulbra/View/                # Classes de acesso a dados (DAO com SQLite ou JSON)
-│   │   └── CadastrMedicoView.java 
+│   │   └── CadastroMedicoView.java 
 │   │   └── CuidadorView.java
 │   │   └── DashboardCuidadorView.java
 │   │   └── DashboardPacienteView.java 
