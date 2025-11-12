@@ -237,8 +237,9 @@ https://lucas2007branco-1761586304066.atlassian.net/jira/software/projects/SCRUM
 <img width="1226" height="856" alt="image" src="https://github.com/user-attachments/assets/baf45cfa-25d8-4908-a69a-13b85a00748e" />
 
 
-**Diagrama de Classes Medico e suas relações**
-<img width="1084" height="672" alt="image" src="https://github.com/user-attachments/assets/64f5d6fa-c02a-49cc-85ea-6d301553a5b2" />
+**Diagrama de Classes Rotinas, Medico, Medicamento e suas relações**
+<img width="1310" height="861" alt="image" src="https://github.com/user-attachments/assets/2da356ac-c167-4b21-a8fc-ee2be7593551" />
+
 
 
 ## 🏫 Contexto Acadêmico
