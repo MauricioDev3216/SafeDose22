@@ -69,7 +69,6 @@ SafeDose/
 │   │   └── DashboardPacienteView.java 
 │   │   └── LoginView.java 
 │   │   └── MedciamentoscadastroView.java
-│   │   └── MedicoView.java
 │   │   └── PacientecadastroView.java 
 │   │   └── PerfilPacienteView.java 
 │   │   └── RotinasView.java
